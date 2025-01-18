@@ -1,3 +1,3 @@
 export default function NewContact() {
-  return 'Homepage';
+  return 'NewContactPage';
 }
