@@ -23,6 +23,7 @@
       ],
       "react/react-in-jsx-scope": "off",
       "import/prefer-default-export": "off",
-      "linebreak-style": "off"
+      "linebreak-style": "off",
+      "import/no-extraneous-dependencies": "off"
     }
 }
