@@ -18,4 +18,4 @@ export default function Loader({ isLoading }) {
 
 Loader.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-}
+};
