@@ -12,6 +12,7 @@ import {
   ListHeader,
   Card,
   EmptyListContainer,
+  SearchNotFoundContainer,
 } from './styles';
 
 import arrow from '../../assets/images/icons/arrow.svg';
@@ -19,6 +20,7 @@ import edit from '../../assets/images/icons/edit.svg';
 import trash from '../../assets/images/icons/trash.svg';
 import sad from '../../assets/images/sad.svg';
 import emptyBox from '../../assets/images/box.svg';
+import magnifier from '../../assets/images/magnifier.svg';
 
 import Loader from '../../components/Loader';
 import Button from '../../components/Button';
@@ -40,7 +42,7 @@ export default function Home() {
     try {
       setIsLoading(true);
 
-      const contactsList = []; await ContactsService.listContacts(orderBy);
+      const contactsList = await ContactsService.listContacts(orderBy);
 
       setHasError(false);
       setContacts(contactsList);
@@ -131,6 +133,16 @@ export default function Home() {
                 para cadastrar o seu primeiro contato!
               </p>
             </EmptyListContainer>
+          )}
+
+          {(contacts.length > 0 && filteredContacts.length < 1) && (
+            <SearchNotFoundContainer>
+              <img src={magnifier} alt="Magnifier" />
+
+              <span>
+                Nenhum resultado foi encontrado para <strong>{searchTerm}</strong>.
+              </span>
+            </SearchNotFoundContainer>
           )}
 
           {filteredContacts.length > 0 && (
