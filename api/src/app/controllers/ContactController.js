@@ -32,7 +32,7 @@ class ContactController {
 			return response.status(400).json({ error: 'Name is required' });
 		}
 
-    if (category_id && !isValidUUID(id)) {
+    if (category_id && !isValidUUID(category_id)) {
 			return response.status(400).json({ error: 'Invalid category' });
 		}
 
