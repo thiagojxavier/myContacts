@@ -6,7 +6,7 @@ class CategoriesService {
   }
 
   async listCategories() {
-    return this.HttpClient.get('/categoriess');
+    return this.HttpClient.get('/categories');
   }
 }
 
