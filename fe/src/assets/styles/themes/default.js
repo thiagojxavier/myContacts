@@ -14,8 +14,11 @@ export default {
     },
     danger: {
       light: '#F97171',
-      main: '#FC5050',
+      main: '#fe8181',
       dark: '#F63131',
+    },
+    success: {
+      main: '#75d590',
     },
   },
 };

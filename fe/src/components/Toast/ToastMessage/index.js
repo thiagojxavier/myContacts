@@ -7,7 +7,7 @@ import circleSuccess from '../../../assets/images/icons/success-circle.png';
 
 export default function ToastMessage({ text, type }) {
   return (
-    <Container>
+    <Container type={type}>
       {type === 'danger' && <img src={circleError} alt="Circle error" />}
       {type === 'success' && <img src={circleSuccess} alt="Circle success" />}
       <strong>{text}</strong>
