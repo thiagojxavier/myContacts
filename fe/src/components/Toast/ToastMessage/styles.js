@@ -2,19 +2,19 @@ import styled, { css } from 'styled-components';
 
 const containerVariants = {
   default: css`
-    background: ${({ theme }) => theme.colors.primary.main};
+    background: ${({ theme }) => theme.colors.primary.lighter};
   `,
   success: css`
     background: ${({ theme }) => theme.colors.success.main};
   `,
   danger: css`
-    background: ${({ theme }) => theme.colors.danger.main};
+    background: ${({ theme }) => theme.colors.danger.lighter};
   `,
 };
 
 export const Container = styled.div`
   padding: 16px 32px;
-  color: #FFF;
+  color:rgb(58, 55, 55);
   border-radius: 4px;
   box-shadow: 0px 20px 20px -16px rgba( 0, 0, 0, 0.25);
   display: flex;
@@ -27,11 +27,8 @@ export const Container = styled.div`
     margin-top: 12px;
   }
 
-  strong {
-    margin-left: 8px;
-  }
-
   img {
     width: 25px;
+    margin-right: 8px;
   }
 `;

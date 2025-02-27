@@ -13,12 +13,13 @@ export default {
       100: '#E5E5E5',
     },
     danger: {
+      lighter: '#ffe4e4',
       light: '#F97171',
       main: '#fe8181',
       dark: '#F63131',
     },
     success: {
-      main: '#75d590',
+      main: '#e3fbea',
     },
   },
 };
