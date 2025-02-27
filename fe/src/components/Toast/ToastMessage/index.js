@@ -13,7 +13,7 @@ export default function ToastMessage({
   }
 
   return (
-    <Container type={message.type} onClick={handleRemoveToast}>
+    <Container type={message.type} onClick={handleRemoveToast} tabIndex={0} role="button">
       {message.type === 'danger' && <img src={circleError} alt="Circle error" />}
       {message.type === 'success' && <img src={circleSuccess} alt="Circle success" />}
       <strong>{message.text}</strong>
