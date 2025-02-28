@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 
 const containerVariants = {
   default: css`
-    background: ${({ theme }) => theme.colors.primary.lighter};
+    background: ${({ theme }) => theme.colors.primary.light};
   `,
   success: css`
     background: ${({ theme }) => theme.colors.success.main};
   `,
   danger: css`
-    background: ${({ theme }) => theme.colors.danger.lighter};
+    background: ${({ theme }) => theme.colors.danger.light};
   `,
 };
 

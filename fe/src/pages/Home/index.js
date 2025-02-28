@@ -24,6 +24,7 @@ import magnifier from '../../assets/images/magnifier.svg';
 
 import Loader from '../../components/Loader';
 import Button from '../../components/Button';
+import Modal from '../../components/Modal';
 
 import ContactsService from '../../services/ContactsService';
 
@@ -74,6 +75,16 @@ export default function Home() {
   return (
     <Container>
       <Loader isLoading={isLoading} />
+
+      <Modal
+        danger
+        title="Algo ai"
+        confirmLabel="Deletar"
+        onCancel={() => alert('a')}
+        onConfirm={() => alert('b')}
+      >
+        <p>Algo</p>
+      </Modal>
 
       {contacts.length > 0 && (
         <InputSearchContainer>

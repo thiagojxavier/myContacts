@@ -50,7 +50,7 @@ export const ListHeader = styled.header`
     }
 
     img {
-      transform: ${({ $orderBy }) => ($orderBy === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)')};
+      transform: ${({ $orderBy }) => ($orderBy === 'asc' ? 'rotate(90deg)' : 'rotate(-90deg)')};
       transition: transform .2s ease-in;
     }
   }
