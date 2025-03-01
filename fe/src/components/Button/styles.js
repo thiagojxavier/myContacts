@@ -25,10 +25,10 @@ export const StyledButton = styled.button`
 
   &[disabled] {
     background: #ccc !important;
-    cursor: default !important; 
+    cursor: default !important;
   }
 
-  ${({ theme, danger }) => danger && css`
+  ${({ theme, $danger }) => $danger && css`
     background: ${theme.colors.danger.main};
 
     &:hover {

@@ -15,7 +15,7 @@ export default function Modal({
   return (
     <ReactPortal containerId="modal-root">
       <Overlay>
-        <Container danger={danger}>
+        <Container $danger={danger}>
           <h1>{title}</h1>
 
           <div className="modal-body">

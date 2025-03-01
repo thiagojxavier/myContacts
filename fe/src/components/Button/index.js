@@ -7,7 +7,7 @@ export default function Button({
   type, disabled, isLoading, children, danger, onClick,
 }) {
   return (
-    <StyledButton danger={danger} type={type} disabled={disabled || isLoading} onClick={onClick}>
+    <StyledButton $danger={danger} type={type} disabled={disabled || isLoading} onClick={onClick}>
       {!isLoading && children}
       {isLoading && <Spinner size={16} />}
     </StyledButton>
