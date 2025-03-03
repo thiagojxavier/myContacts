@@ -1,3 +1,4 @@
+import ContactMapper from './Mappers/ContactMapper';
 import HttpClient from './utils/HttpClient';
 
 class ContactsService {
@@ -14,13 +15,15 @@ class ContactsService {
   }
 
   createContact(contact) {
+    const body = ContactMapper.toPersistence(contact);
     return this.httpClient.post('/contacts', {
-      body: contact,
+      body,
     });
   }
 
   updateContact(id, contact) {
-    return this.httpClient.put(`/contacts/${id}`, { body: contact });
+    const body = ContactMapper.toPersistence(contact);
+    return this.httpClient.put(`/contacts/${id}`, { body });
   }
 
   deleteContact(id) {

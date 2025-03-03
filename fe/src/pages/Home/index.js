@@ -4,6 +4,8 @@ import {
   useEffect, useState, useMemo, useCallback,
 } from 'react';
 
+import formatPhone from '../../utils/formatPhone';
+
 import {
   Container,
   InputSearchContainer,
@@ -217,7 +219,7 @@ export default function Home() {
                   )}
                 </div>
                 <span>{contact.email}</span>
-                <span>{contact.phone}</span>
+                <span>{formatPhone(contact.phone)}</span>
               </div>
 
               <div className="actions">

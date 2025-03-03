@@ -4,22 +4,11 @@ import ContactForm from '../../components/ContactForm';
 import ContactsService from '../../services/ContactsService';
 import toast from '../../utils/toast';
 
-// setName('');
-//     setEmail('');
-//     setPhone('');
-//     setCategoryId('');
-
 export default function NewContact() {
   const contactsFormRef = useRef(null);
-  async function handleSubmit(formData) {
-    try {
-      const contact = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        category_id: formData.categoryId,
-      };
 
+  async function handleSubmit(contact) {
+    try {
       await ContactsService.createContact(contact);
 
       contactsFormRef.current.resetFields();
