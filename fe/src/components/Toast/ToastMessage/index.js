@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
-import { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 import { Container } from './styles';
 
 import circleError from '../../../assets/images/icons/error-circle.svg';
 import circleSuccess from '../../../assets/images/icons/success-circle.svg';
 
-export default function ToastMessage({
+function ToastMessage({
   message, onRemoveMessage, isLeaving, animatedRef,
 }) {
   useEffect(() => {
@@ -43,3 +43,5 @@ ToastMessage.propTypes = {
   isLeaving: PropTypes.bool.isRequired,
   animatedRef: PropTypes.shape().isRequired,
 };
+
+export default memo(ToastMessage);
