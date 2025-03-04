@@ -1,17 +1,30 @@
 import PropTypes from 'prop-types';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Container } from './styles';
 
 import circleError from '../../../assets/images/icons/error-circle.svg';
 import circleSuccess from '../../../assets/images/icons/success-circle.svg';
 
-import useAnimatedUnmount from '../../../hooks/useAnimatedUnmount';
-
 export default function ToastMessage({
-  message, onRemoveMessage, isLeaving,
+  message, onRemoveMessage, isLeaving, onAnimationEnd,
 }) {
-  const { shouldRender, animatedElementRef } = useAnimatedUnmount(!isLeaving);
+  const animatedElementRef = useRef(null);
+
+  useEffect(() => {
+    function handleAnimationEnd() {
+      onAnimationEnd(message.id);
+    }
+
+    const elementRef = animatedElementRef.current;
+    if (isLeaving) {
+      elementRef.addEventListener('animationend', handleAnimationEnd);
+    }
+
+    return () => {
+      elementRef.removeEventListener('animationend', handleAnimationEnd);
+    };
+  }, [isLeaving, message.id, onAnimationEnd]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -25,10 +38,6 @@ export default function ToastMessage({
 
   function handleRemoveToast() {
     onRemoveMessage(message.id);
-  }
-
-  if (!shouldRender) {
-    return null;
   }
 
   return (
@@ -47,7 +56,7 @@ ToastMessage.propTypes = {
     type: PropTypes.oneOf(['default', 'success', 'danger']),
     duration: PropTypes.number,
   }).isRequired,
-
   onRemoveMessage: PropTypes.func.isRequired,
   isLeaving: PropTypes.bool.isRequired,
+  onAnimationEnd: PropTypes.func.isRequired,
 };
