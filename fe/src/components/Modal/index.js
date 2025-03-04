@@ -18,9 +18,20 @@ export default function Modal({
       setShouldRender(true);
     }
 
-    if (!visible && overlayRef.current) {
-      overlayRef.current.addEventListener('animationend', () => {});
+    function handleAnimationEnd() {
+      setShouldRender(false);
     }
+
+    const overlayRefElement = overlayRef.current;
+    if (!visible && overlayRef.current) {
+      overlayRefElement.addEventListener('animationend', handleAnimationEnd);
+    }
+
+    return () => {
+      if (overlayRefElement) {
+        overlayRefElement.addEventListener('animationend', handleAnimationEnd);
+      }
+    };
   }, [visible]);
 
   if (!shouldRender) {
