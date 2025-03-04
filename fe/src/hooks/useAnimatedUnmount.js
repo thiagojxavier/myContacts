@@ -21,7 +21,7 @@ export default function useAnimatedUnmounted(visible) {
 
     return () => {
       if (elementRef) {
-        elementRef.addEventListener('animationend', handleAnimationEnd);
+        elementRef.removeEventListener('animationend', handleAnimationEnd);
       }
     };
   }, [visible]);
