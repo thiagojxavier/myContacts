@@ -16,6 +16,7 @@ import ContactsList from './components/ContactsList';
 
 export default function Home() {
   const {
+    isPending,
     isLoading,
     isLoadingDelete,
     isDeleteModalVisible,
